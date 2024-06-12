@@ -24,17 +24,28 @@ public class CheckGuest {
 		//OPZIONE 1 CON ARRAYS.ASLIST.CONTAINS
 		/*for (int i = 0 ; i < guest.length ; i++) {	
 						
-				if (Arrays.asList(guest).contains(userName)){
-					nameFound = true;
-					break;
+			if (Arrays.asList(guest).contains(userName)){
+				nameFound = true;
+				break;
 				} 				
 	     }*/
 		
 		//OPZIONE 2 CON .EQUALS
 		for (int i = 0; i < guest.length ; i++) {
-			if (userName.toLowerCase().equals(guest[i].toLowerCase()))
+			if (userName.toLowerCase().equals(guest[i].toLowerCase())) {
 				nameFound = true; 
+				break;
+			}
 		}
+		
+		//OPZIONE 3 CON CICLO WHILE
+		/*int i = 0;
+		while (!nameFound && i < guest.length) {
+			if (userName.toLowerCase().equals(guest[i].toLowerCase())) {
+				nameFound = true;
+			}
+			i++;
+		}*/
 		
 		//se la condizione si avvera, puoi entrare --> altrimenti, non puoi entrare
 		if (nameFound) {
