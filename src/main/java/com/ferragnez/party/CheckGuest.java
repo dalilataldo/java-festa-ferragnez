@@ -10,6 +10,7 @@ public class CheckGuest {
 		
 		Scanner input = new Scanner (System.in);
 		
+		//faccio inserire il nome all'utente
 		System.out.println("Digita il tuo nome");
 		String userName = input.nextLine();
 		
@@ -18,22 +19,31 @@ public class CheckGuest {
 		
 		boolean nameFound = false;
 		
-		for (int index = 0 ; index < guest.length ; index++) {	
-			
-			
+		//ciclo for per determinare se il nome inserito è in lista
+		
+		//OPZIONE 1 CON ARRAYS.ASLIST.CONTAINS
+		/*for (int i = 0 ; i < guest.length ; i++) {	
+						
 				if (Arrays.asList(guest).contains(userName)){
 					nameFound = true;
-					System.out.println("Puoi entrare");
 					break;
-				} 	
-				
-				else { System.out.println("Non puoi entrare");
-				       nameFound = false;
-				       break;
-					
-				}
-			
-	   }
+				} 				
+	     }*/
+		
+		//OPZIONE 2 CON .EQUALS
+		for (int i = 0; i < guest.length ; i++) {
+			if (userName.toLowerCase().equals(guest[i].toLowerCase()))
+				nameFound = true; 
+		}
+		
+		//se la condizione si avvera, puoi entrare --> altrimenti, non puoi entrare
+		if (nameFound) {
+		System.out.println("Puoi entrare");
+		}
+		
+		else {System.out.println("Non puoi entrare");		
+        }
+		
 		
      }
 }
